@@ -1,0 +1,46 @@
+{% extends "AppEntrega/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambia %}
+
+<div>
+    <div>
+        <div>
+            <div>
+        <h1 class="text-center">Formulario de Nuevos Pilotos</h1>
+        <p class="lead">
+            <p class="text-center">
+            Ingresa aqui tus datos y crea tu nuevo piloto.
+          </p>
+          {% if mi_Formulario.errors %}
+          <p style="color:red"> Estan mal tus datos, favor revisalo nuevamente</p>
+          {% endif %}
+          <p class="text-center">
+            <form action="/pilotos/" method="POST">
+                {% csrf_token %}
+
+                <table>
+                    {{mi_Formulario.as_table}}
+                </table>
+                {% comment %} <div class="mb-3">
+                <class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre">
+                <div class="mb-3">
+                <class="form-label">Apellido</label>
+                <input type="text" class="form-control" name="apellido">
+                <div class="mb-3">
+                <class="form-label">Escuderia</label>
+                <input type="text" class="form-control" name="escuderia">
+                <p class="text-center"> {% endcomment %}
+                <input type="submit" value="Enviar">
+            <div>
+        <div>
+    <div>
+<div>
+
+
+
+
+
+{% endblock contenidoquecambia %}
