@@ -14,6 +14,9 @@ def pilotos(request):
 def opcionespiloto(request):
     return render(request, "AppEntrega/opcionespiloto.html")
 
+def buscarpiloto(request):
+    return render(request, "AppEntrega/buscarpiloto.html")
+
 def carreras(request):
     return render(request, "AppEntrega/carreras.html")
 
