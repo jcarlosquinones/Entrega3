@@ -5,8 +5,9 @@ urlpatterns = [
     path('', inicio,name= "home"),
     path('pilotos/', pilotos),
     path('carreras/', carreras),
-    path('contacto/', contacto),
+    path('contacto/', contactForm),
     path('ingreso/', ingreso),
-    path('pilotos/nuevopiloto/', pilotoForm),
-    path('carreras/nuevacarrera/', carreraForm)
+    path('nuevopiloto/', pilotoForm),
+    path('nuevacarrera/', carreraForm),
+    path('opcionespiloto/', opcionespiloto),
 ]

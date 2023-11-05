@@ -11,6 +11,9 @@ def inicio(request):
 def pilotos(request):
     return render(request, "AppEntrega/pilotos.html")
 
+def opcionespiloto(request):
+    return render(request, "AppEntrega/opcionespiloto.html")
+
 def carreras(request):
     return render(request, "AppEntrega/carreras.html")
 
@@ -47,3 +50,17 @@ def carreraForm(request):
     else:
         mi_Formulario = NuevaCarrera()
         return render(request, "AppEntrega/carreras.html", {"mi_Formulario":mi_Formulario})
+    
+def contactForm(request):
+    if request.method == 'POST':
+        mi_Formulario = contactoForm(request.POST)
+        print(mi_Formulario)
+        if mi_Formulario.is_valid():
+            contactonuevo = mi_Formulario.cleaned_data
+            contactonuevo = Contacto(nombre=contactonuevo['nombre'], apellido=contactonuevo['apellido'], correo=contactonuevo['correo'], comentario=contactonuevo['comentario'])
+            contactonuevo.save()
+            return render(request, "AppEntrega/index.html")
+    else:
+        mi_Formulario = contactoForm()
+        return render(request, "AppEntrega/contacto.html", {"mi_Formulario":mi_Formulario})
+        
