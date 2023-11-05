@@ -27,10 +27,23 @@ def pilotoForm(request):
         mi_Formulario = IngresoPiloto(request.POST)
         print(mi_Formulario)
         if mi_Formulario.is_valid():
-            informacion = mi_Formulario.cleaned_data
-            nuevopiloto = (informacion['nombre'], informacion['apellido'], informacion['escuderia'])
+            nuevopiloto = mi_Formulario.cleaned_data
+            nuevopiloto = Piloto(nombre=nuevopiloto['nombre'], apellido=nuevopiloto['apellido'], escuderia=nuevopiloto['escuderia'])
             nuevopiloto.save()
             return render(request, "AppEntrega/index.html")
     else:
         mi_Formulario = IngresoPiloto()  
         return render(request, "AppEntrega/pilotos.html", {"mi_Formulario":mi_Formulario})
+
+def carreraForm(request):
+    if request.method == 'POST':
+        mi_Formulario = NuevaCarrera(request.POST)
+        print(mi_Formulario)
+        if mi_Formulario.is_valid():
+            nuevapista = mi_Formulario.cleaned_data
+            nuevapista = Carreras(pista=nuevapista['pista'], pais=nuevapista['pais'], vueltas=nuevapista['vueltas'])
+            nuevapista.save()
+            return render(request, "AppEntrega/index.html")
+    else:
+        mi_Formulario = NuevaCarrera()
+        return render(request, "AppEntrega/carreras.html", {"mi_Formulario":mi_Formulario})

@@ -16,5 +16,4 @@ class Contacto(models.Model):
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)    
     correo = models.EmailField()
-    comentario = models.CharField(max_length=200)
-    
+    comentario = models.CharField(max_length=200)  

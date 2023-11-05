@@ -7,4 +7,6 @@ urlpatterns = [
     path('carreras/', carreras),
     path('contacto/', contacto),
     path('ingreso/', ingreso),
+    path('pilotos/nuevopiloto/', pilotoForm),
+    path('carreras/nuevacarrera/', carreraForm)
 ]
