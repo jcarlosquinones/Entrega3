@@ -20,6 +20,9 @@ def buscarpiloto(request):
 def carreras(request):
     return render(request, "AppEntrega/carreras.html")
 
+def opcionescarreras(request):
+    return render(request, "AppEntrega/opcionescarreras.html")
+
 def contacto(request):
     return render(request, "AppEntrega/contacto.html")
 
