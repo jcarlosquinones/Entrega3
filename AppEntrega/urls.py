@@ -11,4 +11,5 @@ urlpatterns = [
     path('nuevacarrera/', carreraForm),
     path('opcionespiloto/', opcionespiloto),
     path('buscarpiloto/', buscarpiloto),
+    path('buscarpiloto/mostrarpilotos/',buscar),
 ]

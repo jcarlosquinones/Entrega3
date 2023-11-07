@@ -66,4 +66,14 @@ def contactForm(request):
     else:
         mi_Formulario = contactoForm()
         return render(request, "AppEntrega/contacto.html", {"mi_Formulario":mi_Formulario})
-        
+
+
+#Vistas de la busqueda
+
+def buscar(request):
+    if request.GET["escuderia"]:
+        escuderia=request.GET["escuderia"]
+        busquedapilotos=Piloto.objects.filter(escuderia__icontains=escuderia)
+        return render(request, "AppEntrega/mostrarpilotos.html", {"busquedapilotos":busquedapilotos, "escuderia":escuderia})
+    else:
+        return HttpResponse("No haz ingresado ninguna escuderia")
